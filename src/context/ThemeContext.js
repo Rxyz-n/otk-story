@@ -8,16 +8,11 @@ import {
 } from '../utils/theme';
 
 const ThemeContext = createContext();
-const CURRENT_THEME_ID = 'current-theme-id';
+const CURRENT_THEME_ID = 'current-theme';
 
 function ThemeProvider({ children }) {
   const [status, setStatus] = useState('loading');
   const [currentTheme, setCurrentTheme] = useState(null);
-
-  useEffect(() => {
-    switchTheme(themeConfig.default);
-    // eslint-disable-next-line
-  }, []);
 
   useEffect(() => {
     Object.keys(themeConfig.themeMap).forEach(theme => {
@@ -29,6 +24,11 @@ function ThemeProvider({ children }) {
       });
       insertStyle(themePrefetch);
     });
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    switchTheme(themeConfig.default);
     // eslint-disable-next-line
   }, []);
 

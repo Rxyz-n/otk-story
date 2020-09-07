@@ -23,7 +23,8 @@ export const createLinkEl = attrs => {
 };
 
 export const insertStyle = node => {
-  document.head.insertBefore(node, document.head.children[0]);
+  const target = document.head.querySelector('title');
+  document.head.insertBefore(node, target);
 };
 
 export const getThemeKeys = () => {
