@@ -1,11 +1,12 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 import {
   createLinkEl,
   insertStyle,
   themeConfig,
   getThemeKeys
-} from '../utils/theme';
+} from 'utils/theme';
 
 const ThemeContext = createContext();
 const CURRENT_THEME_ID = 'current-theme';
@@ -31,6 +32,16 @@ function ThemeProvider({ children }) {
     switchTheme(themeConfig.default);
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if (status === 'loading') {
+      document.body.classList.remove('theme-loaded');
+      document.body.classList.add('theme-loading');
+    } else {
+      document.body.classList.remove('theme-loading');
+      document.body.classList.add('theme-loaded');
+    }
+  }, [status]);
 
   const switchTheme = theme => {
     if (theme === currentTheme) return;
@@ -60,7 +71,9 @@ function ThemeProvider({ children }) {
         switchTheme
       }}
     >
-      {children}
+      <StyledThemeProvider theme={{ mode: currentTheme }}>
+        {children}
+      </StyledThemeProvider>
     </ThemeContext.Provider>
   );
 }

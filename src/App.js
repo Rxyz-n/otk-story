@@ -1,13 +1,15 @@
 import React from 'react';
 
-import { useThemeContext } from './context/ThemeContext';
+import { StyledLayout } from 'components/Layout/Styles';
+import { Header, Content, Footer } from 'components/Layout';
 
 function App() {
-  const theme = useThemeContext();
   return (
-    <div className="App" onClick={() => theme.switchTheme('dark')}>
-      Hello
-    </div>
+    <StyledLayout>
+      <Header />
+      <Content>hi</Content>
+      <Footer>xxx</Footer>
+    </StyledLayout>
   );
 }
 
