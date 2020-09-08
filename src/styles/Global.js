@@ -16,6 +16,31 @@ const GlobalStyle = createGlobalStyle`
       }
     }
   `}
+
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 10px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    height: 6px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    border-radius: 7px;
+    background-color: ${({ theme }) =>
+      theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0,0,0,.2)'};
+  }
 `;
 
 export default GlobalStyle;

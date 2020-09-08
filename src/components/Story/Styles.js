@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 import { Collapse, Card } from 'antd';
 
-export const StoryWrap = styled.div`
-  margin-top: 25px;
-`;
-
 export const StoryCollapse = styled(Collapse)`
   margin-bottom: 25px;
   border-radius: 4px;
@@ -53,8 +49,13 @@ export const StoryCard = styled(Card)`
   }
 
   .ant-card-cover {
+    height: 22rem;
     overflow: hidden;
+
     img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       transition: transform 0.2s;
     }
   }

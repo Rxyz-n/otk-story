@@ -2,16 +2,16 @@ import React from 'react';
 
 import { StyledLayout } from 'components/Layout/Styles';
 import { Header, Content, Footer } from 'components/Layout';
-import RangePicker from 'components/RangePicker';
-import Story from 'components/Story';
+import DatePicker from 'components/DatePicker';
+import Stories from 'components/Stories';
 
 function App() {
   return (
     <StyledLayout>
       <Header />
       <Content>
-        <RangePicker />
-        <Story />
+        <DatePicker />
+        <Stories />
       </Content>
       <Footer>xxx</Footer>
     </StyledLayout>

@@ -1,46 +1,44 @@
 import React from 'react';
+import moment from 'moment';
 import {
   CaretRightOutlined,
   FileImageOutlined,
   DownloadOutlined
 } from '@ant-design/icons';
 
-import {
-  StoryWrap,
-  StoryCollapse,
-  StoryPanelHeader,
-  StoryCard
-} from './Styles';
+import { StoryCollapse, StoryPanelHeader, StoryCard } from './Styles';
 
-function Story() {
+import { DISPLAY_DATE_FORMAT } from 'utils/dateTime';
+
+function Story({ date, story }) {
   return (
-    <StoryWrap>
-      <StoryCollapse
-        defaultActiveKey={['1']}
-        expandIcon={({ isActive }) => (
-          <CaretRightOutlined rotate={isActive ? 90 : 0} />
-        )}
+    <StoryCollapse
+      defaultActiveKey={[date]}
+      expandIcon={({ isActive }) => (
+        <CaretRightOutlined rotate={isActive ? 90 : 0} />
+      )}
+    >
+      <StoryCollapse.Panel
+        header={
+          <StoryPanelHeader>
+            {moment(date).format(DISPLAY_DATE_FORMAT)}
+          </StoryPanelHeader>
+        }
+        key={date}
       >
-        <StoryCollapse.Panel
-          header={<StoryPanelHeader>08-09-2020</StoryPanelHeader>}
-          key="1"
-        >
+        {story.map(({ Id, ThumbUrl, Name }) => (
           <StoryCard
+            key={Id}
             hoverable
-            cover={
-              <img
-                src="https://image.myrockmanga.com/extendContent/Cosplay/d895b464-53bb-4545-b373-9facca5ddec9_thumb.jpg"
-                alt="card"
-              />
-            }
+            cover={<img src={ThumbUrl} alt={Name} />}
             actions={[
               <FileImageOutlined key="setting" />,
               <DownloadOutlined key="edit" />
             ]}
           />
-        </StoryCollapse.Panel>
-      </StoryCollapse>
-    </StoryWrap>
+        ))}
+      </StoryCollapse.Panel>
+    </StoryCollapse>
   );
 }
 
