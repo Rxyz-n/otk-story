@@ -52,4 +52,12 @@ export const StyledContent = styled(Layout.Content)`
   flex-grow: 1;
 `;
 
-export const StyledFooter = styled(Layout.Footer)``;
+export const StyledFooter = styled(Layout.Footer)`
+  padding: 1rem 50px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+
+  a:hover {
+    text-decoration: underline;
+  }
+`;

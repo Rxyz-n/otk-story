@@ -13,6 +13,10 @@ function Header() {
     switchTheme(currentTheme === 'light' ? 'dark' : 'light');
   };
 
+  const openLinkRepo = () => [
+    window.open('https://github.com/Nagai-Nano/otk-story', '_blank')
+  ];
+
   return (
     <StyledHeader>
       <a href="/" className="logo">
@@ -30,7 +34,11 @@ function Header() {
         >
           <AlertOutlined />
         </Menu.Item>
-        <Menu.Item className="menu-icon" style={{ marginRight: 0 }}>
+        <Menu.Item
+          className="menu-icon"
+          style={{ marginRight: 0 }}
+          onClick={openLinkRepo}
+        >
           <GithubOutlined />
         </Menu.Item>
       </Menu>
