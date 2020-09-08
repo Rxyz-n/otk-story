@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 export const StyledLayout = styled(Layout)`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 `;
 
 export const StyledHeader = styled(Layout.Header)`
@@ -31,6 +31,7 @@ export const StyledHeader = styled(Layout.Header)`
 
   .menu-icon {
     margin-top: 8px !important;
+
     span {
       font-size: 1.5rem;
     }

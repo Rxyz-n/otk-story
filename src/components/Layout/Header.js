@@ -30,7 +30,7 @@ function Header() {
         >
           <AlertOutlined />
         </Menu.Item>
-        <Menu.Item className="menu-icon">
+        <Menu.Item className="menu-icon" style={{ marginRight: 0 }}>
           <GithubOutlined />
         </Menu.Item>
       </Menu>
