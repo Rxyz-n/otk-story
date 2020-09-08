@@ -1,5 +1,5 @@
 const THEME_PATH = `${process.env.PUBLIC_URL}/theme`;
-const DEFAULT_THEME = 'light';
+const DEFAULT_THEME = localStorage.getItem('APP_THEME') || 'light';
 
 export const themeConfig = {
   default: DEFAULT_THEME,

@@ -58,6 +58,7 @@ function ThemeProvider({ children }) {
       onload: () => setStatus('loaded')
     });
 
+    localStorage.setItem('APP_THEME', theme);
     insertStyle(linkEl);
     setCurrentTheme(theme);
   };

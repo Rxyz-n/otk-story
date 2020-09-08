@@ -2,17 +2,12 @@ import styled from 'styled-components';
 import { Layout } from 'antd';
 
 export const StyledLayout = styled(Layout)`
-  background: ${({ theme }) => (theme.mode === 'dark' ? '#434343' : '#eef0f1')};
   display: flex;
   flex-direction: column;
   height: 100vh;
 `;
 
 export const StyledHeader = styled(Layout.Header)`
-  position: fixed;
-  width: 100%;
-  z-index: 1;
-  background: ${({ theme }) => (theme.mode === 'dark' ? '#202020' : '#ffffff')};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,10 +47,8 @@ export const StyledHeader = styled(Layout.Header)`
 
 export const StyledContent = styled(Layout.Content)`
   padding: 0 50px;
-  margin-top: 114px;
+  margin-top: 50px;
   flex-grow: 1;
 `;
 
-export const StyledFooter = styled(Layout.Footer)`
-  background: ${({ theme }) => (theme.mode === 'dark' ? '#434343' : '#eef0f1')};
-`;
+export const StyledFooter = styled(Layout.Footer)``;
