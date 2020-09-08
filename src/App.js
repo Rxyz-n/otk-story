@@ -1,4 +1,5 @@
 import React from 'react';
+import { BackTop } from 'antd';
 
 import { StyledLayout } from 'components/Layout/Styles';
 import { Header, Content, Footer } from 'components/Layout';
@@ -13,6 +14,7 @@ function App() {
         <DatePicker />
         <Stories />
       </Content>
+      <BackTop />
       <Footer>xxx</Footer>
     </StyledLayout>
   );

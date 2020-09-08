@@ -17,6 +17,15 @@ const GlobalStyle = createGlobalStyle`
     }
   `}
 
+  .ant-back-top {
+    right: 30px;
+    bottom: 30px;
+  }
+
+  .ant-back-top-icon {
+    font-size: 20px;
+  }
+
   ::-webkit-scrollbar {
     width: 11px;
     height: 10px;
