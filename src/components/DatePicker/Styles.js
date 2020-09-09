@@ -14,5 +14,9 @@ export const DatePickerWrap = styled.div`
 
   .ant-picker {
     width: 16rem;
+
+    @media (max-width: 767.98px) {
+      flex-grow: 1;
+    }
   }
 `;

@@ -7,7 +7,9 @@ const initState = {
   date: moment(),
   loading: false,
   error: false,
-  stories: []
+  stories: [],
+  story: [],
+  currentImage: {}
 };
 
 function reducer(state, { type, payload }) {
@@ -20,6 +22,32 @@ function reducer(state, { type, payload }) {
       return { ...state, loading: false, stories: payload };
     case 'FETCH_FAILED':
       return { ...state, loading: false, error: true };
+    case 'ADD_STORY':
+      const story = state.stories.find(s => s.date === payload.date).story;
+      const currentImageIdx = story.findIndex(s => s.Id === payload.id);
+      return {
+        ...state,
+        story,
+        currentImage: {
+          ...story[currentImageIdx],
+          idx: currentImageIdx,
+          isFirstImage: currentImageIdx === 0,
+          isLastImage: currentImageIdx === story.length - 1
+        }
+      };
+    case 'REMOVE_STORY':
+      return { ...state, story: [], currentImage: {} };
+    case 'CHANGE_CURRENT_IMAGE':
+      const newIdx = state.currentImage.idx + payload;
+      return {
+        ...state,
+        currentImage: {
+          ...state.story[newIdx],
+          idx: newIdx,
+          isFirstImage: newIdx === 0,
+          isLastImage: newIdx === state.story.length - 1
+        }
+      };
     default:
       return state;
   }

@@ -23,6 +23,26 @@ export const StoryCollapse = styled(Collapse)`
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 1rem;
+
+    @media (max-width: 1499.98px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    @media (max-width: 1199.98px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: 991.98px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 767.98px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 575.98px) {
+      grid-template-columns: 1fr;
+    }
   }
 `;
 
@@ -51,13 +71,6 @@ export const StoryCard = styled(Card)`
   .ant-card-cover {
     height: 22rem;
     overflow: hidden;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.2s;
-    }
   }
 
   .ant-card-actions {
@@ -67,6 +80,7 @@ export const StoryCard = styled(Card)`
       theme.mode === 'dark' ? '#242526' : '#ffffff'};
 
     .anticon {
+      opacity: 1;
       color: ${({ theme }) =>
         theme.mode === 'dark' ? '#ffffffa6' : '#8c8c8c'};
 
@@ -80,4 +94,15 @@ export const StoryCard = styled(Card)`
         theme.mode === 'dark' ? '#ffffffa6' : '#f0f0f0'};
     }
   }
+`;
+
+export const EmptyMessage = styled.div`
+  grid-column: 1/-1;
+  text-align: center;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: ${({ theme }) =>
+    theme.mode === 'dark' ? 'rgba(255,255,255,.4)' : 'rgba(0,0,0,.4)'};
+  padding: 1rem;
+  letter-spacing: 1px;
 `;

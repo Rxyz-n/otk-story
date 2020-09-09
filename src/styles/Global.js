@@ -4,8 +4,8 @@ const GlobalStyle = createGlobalStyle`
   ${({ theme }) => css`
     body {
       font-family: 'IBM Plex Sans', sans-serif;
-      background: ${theme.mode === 'dark' ? 'black' : '#eef0f1'};
-      color: ${theme.mode === 'dark' ? 'white' : 'black'};
+      background: ${theme.mode === 'dark' ? '#18191a' : '#eef0f1'};
+      color: ${theme.mode === 'dark' ? '#ffffff' : '#000000'};
       transition: opacity 0.2s;
 
       &.theme-loading {
@@ -24,6 +24,18 @@ const GlobalStyle = createGlobalStyle`
 
   .ant-back-top-icon {
     font-size: 20px;
+  }
+
+  .ant-modal-mask {
+    background-color: rgba(0,0,0,.7);
+  }
+
+  .ant-modal-body {
+    padding: 0;
+  }
+
+  .ant-modal-body > div:not(.loaded) {
+    height: 45rem;
   }
 
   ::-webkit-scrollbar {

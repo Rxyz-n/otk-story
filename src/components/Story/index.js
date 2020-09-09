@@ -6,11 +6,38 @@ import {
   DownloadOutlined
 } from '@ant-design/icons';
 
-import { StoryCollapse, StoryPanelHeader, StoryCard } from './Styles';
+import {
+  StoryCollapse,
+  StoryPanelHeader,
+  StoryCard,
+  EmptyMessage
+} from './Styles';
 
 import { DISPLAY_DATE_FORMAT } from 'utils/dateTime';
+import { useStoriesContext } from 'context/StoriesContext';
+import Image from 'components/Image';
 
 function Story({ date, story }) {
+  const { dispatch } = useStoriesContext();
+
+  const handleOpenImageDetail = id => () => {
+    window.open(`https://otakusan.net/Cosplay/PictureDetail/${id}`, '_blank');
+  };
+
+  const handleDownloadImage = url => () => {
+    const a = document.createElement('a');
+    a.href = url;
+    a.target = '_blank';
+    a.click();
+  };
+
+  const handleImageClick = id => () => {
+    dispatch({
+      type: 'ADD_STORY',
+      payload: { id, date }
+    });
+  };
+
   return (
     <StoryCollapse
       defaultActiveKey={[date]}
@@ -26,17 +53,33 @@ function Story({ date, story }) {
         }
         key={date}
       >
-        {story.map(({ Id, ThumbUrl, Name }) => (
-          <StoryCard
-            key={Id}
-            hoverable
-            cover={<img src={ThumbUrl} alt={Name} />}
-            actions={[
-              <FileImageOutlined key="setting" />,
-              <DownloadOutlined key="edit" />
-            ]}
-          />
-        ))}
+        {!!story.length ? (
+          story.map(({ Id, ThumbUrl, Name, Url }) => (
+            <StoryCard
+              key={Id}
+              hoverable
+              cover={
+                <Image
+                  src={ThumbUrl}
+                  alt={Name}
+                  onImageClick={handleImageClick(Id)}
+                />
+              }
+              actions={[
+                <FileImageOutlined
+                  key="file"
+                  onClick={handleOpenImageDetail(Id)}
+                />,
+                <DownloadOutlined
+                  key="download"
+                  onClick={handleDownloadImage(Url)}
+                />
+              ]}
+            />
+          ))
+        ) : (
+          <EmptyMessage>No images found</EmptyMessage>
+        )}
       </StoryCollapse.Panel>
     </StoryCollapse>
   );

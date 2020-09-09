@@ -44,6 +44,12 @@ export const StyledHeader = styled(Layout.Header)`
     border-bottom: none !important;
     background: transparent;
   }
+
+  @media (max-width: 575.98px) {
+    .ant-menu-item {
+      margin-left: 5px !important;
+    }
+  }
 `;
 
 export const StyledContent = styled(Layout.Content)`
