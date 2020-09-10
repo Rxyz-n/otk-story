@@ -1,6 +1,7 @@
 {
   "name": "otk-story",
   "version": "0.1.0",
+  "homepage": "https://nagai-nano.github.io/otk-story",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
@@ -19,7 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "less": "parcel build src/theme/**.less --out-dir public/theme"
+    "less": "parcel build src/theme/**.less --out-dir public/theme",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,7 +39,11 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^3.1.0",
     "less": "^3.12.2",
     "parcel-bundler": "^1.12.4"
-  }
+  },
+  "repository": "git@github.com:Nagai-Nano/otk-story.git",
+  "author": "Nano <hikarishido1997@gmail.com>",
+  "license": "MIT"
 }
