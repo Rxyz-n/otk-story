@@ -69,6 +69,7 @@ function StoryModal() {
         centered
         destroyOnClose
         footer={null}
+        width={700}
       >
         {!!Url && <Image key={idx} src={Url} alt={Name} />}
       </Modal>
