@@ -21,7 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "less": "parcel build src/theme/**.less --out-dir public/theme",
-    "deploy": "gh-pages -d build"
+    "deploy": "yarn run build & gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
