@@ -16,7 +16,7 @@ function App() {
         <Stories />
       </Content>
       <BackTop />
-      <Footer>xxx</Footer>
+      <Footer />
       <Modal />
     </StyledLayout>
   );
