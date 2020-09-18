@@ -41,6 +41,9 @@ function Image({ src, alt, onImageClick, ...props }) {
           alt={alt}
           ref={imageRef}
           onClick={!loading ? onImageClick : undefined}
+          style={{
+            cursor: onImageClick && !loading && !error ? 'pointer' : 'auto'
+          }}
         />
       )}
     </ImageWrap>

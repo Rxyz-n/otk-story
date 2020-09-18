@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal } from 'antd';
 import {
   CloseOutlined,
@@ -12,6 +12,7 @@ import { useStoriesContext } from 'context/StoriesContext';
 import Image from 'components/Image';
 
 function StoryModal() {
+  const [zoom, setZoom] = useState(false);
   const { state, dispatch } = useStoriesContext();
 
   const { story, currentImage } = state;
@@ -43,6 +44,10 @@ function StoryModal() {
     }
   };
 
+  const handleZoomInOut = () => {
+    setZoom(prev => !prev);
+  };
+
   return (
     <React.Fragment>
       {!!story.length && (
@@ -69,9 +74,16 @@ function StoryModal() {
         centered
         destroyOnClose
         footer={null}
-        width={700}
+        width={zoom ? 'auto' : 700}
       >
-        {!!Url && <Image key={idx} src={Url} alt={Name} />}
+        {!!Url && (
+          <Image
+            key={idx}
+            src={Url}
+            alt={Name}
+            onImageClick={handleZoomInOut}
+          />
+        )}
       </Modal>
     </React.Fragment>
   );
