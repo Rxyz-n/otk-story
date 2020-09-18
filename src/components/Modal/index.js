@@ -26,6 +26,7 @@ function StoryModal() {
 
   const handleCloseModal = () => {
     dispatch({ type: 'REMOVE_STORY' });
+    setZoom(false);
   };
 
   const handleChangeImage = pos => () => {
@@ -74,7 +75,7 @@ function StoryModal() {
         centered
         destroyOnClose
         footer={null}
-        width={zoom ? 'auto' : 700}
+        width={zoom ? 'auto' : 600}
       >
         {!!Url && (
           <Image
