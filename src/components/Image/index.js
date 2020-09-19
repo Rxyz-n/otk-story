@@ -23,6 +23,7 @@ function Image({ src, alt, onImageClick, ...props }) {
       imageRef.current.src = src;
       setError(false);
       setLoading(false);
+      props.onImageLoad && props.onImageLoad();
     }
   };
 

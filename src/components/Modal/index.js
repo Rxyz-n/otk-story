@@ -13,6 +13,7 @@ import Image from 'components/Image';
 
 function StoryModal() {
   const [zoom, setZoom] = useState(false);
+  const [modalWidth, setModalWidth] = useState(600);
   const { state, dispatch } = useStoriesContext();
 
   const { story, currentImage } = state;
@@ -24,12 +25,17 @@ function StoryModal() {
     // eslint-disable-next-line
   }, [story, Url]);
 
+  useEffect(() => {
+    setModalWidth(zoom ? 'auto' : 600);
+  }, [zoom]);
+
   const handleCloseModal = () => {
     dispatch({ type: 'REMOVE_STORY' });
     setZoom(false);
   };
 
   const handleChangeImage = pos => () => {
+    setModalWidth(600);
     dispatch({ type: 'CHANGE_CURRENT_IMAGE', payload: pos });
   };
 
@@ -43,10 +49,6 @@ function StoryModal() {
     if (code === 'ArrowRight' && !isLastImage) {
       handleChangeImage(1)();
     }
-  };
-
-  const handleZoomInOut = () => {
-    setZoom(prev => !prev);
   };
 
   return (
@@ -75,14 +77,15 @@ function StoryModal() {
         centered
         destroyOnClose
         footer={null}
-        width={zoom ? 'auto' : 600}
+        width={modalWidth}
       >
         {!!Url && (
           <Image
             key={idx}
             src={Url}
             alt={Name}
-            onImageClick={handleZoomInOut}
+            onImageLoad={() => setModalWidth(prev => (zoom ? 'auto' : prev))}
+            onImageClick={() => setZoom(prev => !prev)}
           />
         )}
       </Modal>
