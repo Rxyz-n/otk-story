@@ -25,7 +25,7 @@ export const StyledHeader = styled(Layout.Header)`
 
 export const StyledContent = styled(Layout.Content)`
   max-width: 1920px;
-  width:100%;
+  width: 100%;
   padding: 0 50px;
   margin: 50px auto 0 auto;
   flex-grow: 1;

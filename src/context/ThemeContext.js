@@ -36,8 +36,8 @@ function ThemeProvider({ children }) {
   useEffect(() => {
     if (status === 'loaded') {
       setTimeout(() => {
-        document.body.className = 'theme-loaded'
-      }, 100)
+        document.body.className = 'theme-loaded';
+      }, 100);
     }
   }, [status]);
 

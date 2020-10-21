@@ -14,7 +14,12 @@ function Header() {
 
   return (
     <StyledHeader>
-      <a href="/" className="logo">
+      <a
+        className="logo"
+        href={
+          process.env.NODE_ENV === 'development' ? '/' : process.env.PUBLIC_URL
+        }
+      >
         <img src={logo} alt="logo" />
       </a>
       <Switch
