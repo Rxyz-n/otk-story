@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cbae064580f60f4c2a0b12fbd8e30a59",
+    "revision": "a8c23bd3cb3b9caea6fe1f698522d086",
     "url": "/otk-story/index.html"
   },
   {
-    "revision": "71e34a9d432a1901a522",
-    "url": "/otk-story/static/js/2.0ed3d151.chunk.js"
+    "revision": "1265a6512c7f2c624c8a",
+    "url": "/otk-story/static/js/2.79204b2b.chunk.js"
   },
   {
     "revision": "e4f6fd5e687738d725e56603861f1923",
-    "url": "/otk-story/static/js/2.0ed3d151.chunk.js.LICENSE.txt"
+    "url": "/otk-story/static/js/2.79204b2b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d6e4116c638ec3224b7f",
-    "url": "/otk-story/static/js/main.17fdb34f.chunk.js"
+    "revision": "14dc289b7408e155b3ab",
+    "url": "/otk-story/static/js/main.1354fc3b.chunk.js"
   },
   {
     "revision": "67db3b511c01b26b64da",
