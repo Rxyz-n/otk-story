@@ -14,47 +14,20 @@ export const StyledHeader = styled(Layout.Header)`
   overflow: hidden;
 
   .logo {
-    width: 170px;
+    width: 150px;
 
     img {
       width: 100%;
       margin-bottom: 4px;
     }
   }
-
-  ul {
-    display: flex;
-    justify-content: flex-end;
-    border-bottom: none;
-    background: transparent;
-  }
-
-  .menu-icon {
-    margin-top: 8px !important;
-
-    span {
-      font-size: 1.5rem;
-    }
-  }
-
-  .ant-menu-item-active,
-  .ant-menu-item-selected,
-  .ant-menu-submenu,
-  .ant-menu-item {
-    border-bottom: none !important;
-    background: transparent;
-  }
-
-  @media (max-width: 575.98px) {
-    .ant-menu-item {
-      margin-left: 5px !important;
-    }
-  }
 `;
 
 export const StyledContent = styled(Layout.Content)`
+  max-width: 1920px;
+  width:100%;
   padding: 0 50px;
-  margin-top: 50px;
+  margin: 50px auto 0 auto;
   flex-grow: 1;
 `;
 

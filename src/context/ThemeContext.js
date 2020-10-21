@@ -34,12 +34,10 @@ function ThemeProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    if (status === 'loading') {
-      document.body.classList.remove('theme-loaded');
-      document.body.classList.add('theme-loading');
-    } else {
-      document.body.classList.remove('theme-loading');
-      document.body.classList.add('theme-loaded');
+    if (status === 'loaded') {
+      setTimeout(() => {
+        document.body.className = 'theme-loaded'
+      }, 100)
     }
   }, [status]);
 
@@ -49,7 +47,9 @@ function ThemeProvider({ children }) {
     const prevTheme = document.getElementById(CURRENT_THEME_ID);
     if (prevTheme) prevTheme.remove();
 
+    document.body.className = 'theme-loading';
     setStatus('loading');
+
     const linkEl = createLinkEl({
       type: 'text/css',
       rel: 'stylesheet',

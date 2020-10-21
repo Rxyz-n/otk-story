@@ -38,8 +38,12 @@ const GlobalStyle = createGlobalStyle`
     height: 45rem;
   }
 
+  .ant-switch-checked {
+    background-color: #25c6c6;
+  }
+
   ::-webkit-scrollbar {
-    width: 11px;
+    width: 13px;
     height: 10px;
     background: transparent;
   }
